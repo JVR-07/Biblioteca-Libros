@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Biblioteca de Libros de Programación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Usamos la fuente Roboto -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Estilos generales */
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background: linear-gradient(135deg, #7592f3, #95edf8);
+      margin: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 500;
+      color: #1a202c;
+    }
+    /* Contenedor para controles */
+    .controls {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .controls button,
+    .controls select {
+      padding: 8px 12px;
+      margin: 5px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.5s;
+    }
+    .controls button {
+      background-color: #1a202c;
+      color: #fff;
+    }
+    .controls button:hover {
+      background-color: rgba(165, 0, 230, 0.473);
+    }
+    .controls select {
+      background-color: #fff;
+      color: #1a202c;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    /* Contenedor de tarjetas */
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    /* Tarjeta */
+    .card {
+      background-color: #bbfcab;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      width: 220px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, background-color 0.5s ease; /* Agregar transición */
+      text-align: center;
+      cursor: pointer;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+    }
+    .card:hover {
+      transform: scale(1.03);
+      background-color: rgba(165, 0, 230, 0.473);
+      color: #fff;
+    }
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-bottom: 1px solid #ddd;
+    }
+    .card .info {
+      padding: 12px;
+    }
+    .card .info h3 {
+      font-size: 18px;
+      margin: 8px 0 4px;
+      color: #2d3748;
+    }
+    .card .info p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: #4a5568;
+    }
+    .card .info p strong {
+      color: #1a202c;
+    }
+
+    /* Logo centrado */
+    .logo-container {
+      display: flex;
+      justify-content: center;
+    }
+
+.logo-container img {
+  width: 500px; /* Ajusta el tamaño según lo necesites */
+  height: auto;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Agregar el logo centrado -->
+  <div class="logo-container">
+    <img 
+      src="logo-transparent-png.png" 
+      alt="Logo de la Biblioteca"
+    >
+  </div>
+  <!-- Controles para ordenar y filtrar -->
+  <div class="controls">
+    <button id="ascendente">Ordenar A-Z</button>
+    <button id="descendente">Ordenar Z-A</button>
+    <select id="filtroLenguaje">
+      <option value="todos">Todos los lenguajes</option>
+      <option value="Java">Java</option>
+      <option value="PHP">PHP</option>
+      <option value="App Inventor">App Inventor</option>
+      <option value="HTML">HTML</option>
+      <option value="SQL">SQL</option>
+      <option value="CSS">CSS</option>
+      <option value="Algoritmos">Algoritmos</option>
+      <option value="C++">C++</option>
+      <option value="JavaScript">JavaScript</option>
+    </select>
+  </div>
+
+  <!-- Contenedor de tarjetas -->
+  <div class="card-container" id="cardContainer">
+    <!-- Tarjeta de Java -->
+    <a 
+      href="https://greenteapress.com/thinkjava6/thinkjava.pdf" 
+      target="_blank" 
+      class="card" 
+      data-title="Think Java" 
+      data-language="Java">
+      <img 
+        src="https://th.bing.com/th/id/R.202ac097774ef74e3a9f3ca8fa31e451?rik=baSEOTWzfPiZyQ&riu=http%3a%2f%2fgreenteapress.com%2fwp%2fwp-content%2fuploads%2f2020%2f06%2fthink_java_covr_large.png&ehk=04E3jgwSrCQul3hAGM7yNtH0z7jGik2flpGPTdRpyco%3d&risl=&pid=ImgRaw&r=0" 
+        alt="Portada Think Java">
+      <div class="info">
+        <h3>Think Java</h3>
+        <p>Allen Downey &amp; Chris Mayfield</p>
+        <p><strong>Java</strong></p>
+      </div>
+    </a>
+    <!-- Tarjeta de PHP -->
+    <a 
+      href="https://www.mundotec.com.ar/Manual_Basico_PHP.pdf" 
+      target="_blank" 
+      class="card" 
+      data-title="PHP 7 Notes for Professionals" 
+      data-language="PHP">
+      <img 
+        src="https://th.bing.com/th/id/OIP.Q0D_R9GkPX-xDKdSLbskHwHaKe?rs=1&pid=ImgDetMain" 
+        alt="Portada PHP 7 Notes">
+      <div class="info">
+        <h3>Manual de PHP</h3>
+        <p>Rubén Alvarez</p>
+        <p><strong>PHP</strong></p>
+      </div>
+    </a>
+    <!-- Tarjeta de App Inventor -->
+    <a 
+      href="https://codeweek.eu/docs/spain/guia-iniciacion-app-inventor.pdf" 
+      target="_blank" 
+      class="card" 
+      data-title="Guía rápida de App Inventor" 
+      data-language="App Inventor">
+      <img 
+        src="https://datawiz.ca/wp-content/uploads/2021/01/icon.png" 
+        alt="Portada Guía App Inventor">
+      <div class="info">
+        <h3>Guía rápida de App Inventor</h3>
+        <p>CodeWeek</p>
+        <p><strong>App Inventor</strong></p>
+      </div>
+    </a>
+    <!-- Tarjeta de HTML -->
+    <a 
+      href="https://goalkicker.com/HTML5Book/HTML5NotesForProfessionals.pdf" 
+      target="_blank" 
+      class="card" 
+      data-title="HTML Notes for Professionals" 
+      data-language="HTML">
+      <img 
+        src="https://th.bing.com/th/id/OIP.nf37RJLKob3FWWQQSWiEAgHaKe?rs=1&pid=ImgDetMain" 
+        alt="Portada HTML Notes">
+      <div class="info">
+        <h3>HTML Notes for Professionals</h3>
+        <p>GoalKicker</p>
+        <p><strong>HTML</strong></p>
+      </div>
+    </a>
+    <!-- Tarjeta de SQL -->
+    <a 
+      href="https://books.goalkicker.com/SQLBook/SQLNotesForProfessionals.pdf" 
+      target="_blank" 
+      class="card" 
+      data-title="SQL Notes for Professionals" 
+      data-language="SQL">
+      <img 
+        src="https://th.bing.com/th/id/OIP.1PzP1XlkTtr6CZ1AMWTvvAHaKe?rs=1&pid=ImgDetMain" 
+        alt="Portada SQL Notes">
+      <div class="info">
+        <h3>SQL Notes for Professionals</h3>
+        <p>GoalKicker</p>
+        <p><strong>SQL</strong></p>
+      </div>
+    </a>
+    <!-- Tarjeta de CSS -->
+    <a 
+      href="https://books.goalkicker.com/CSSBook/CSSNotesForProfessionals.pdf" 
+      target="_blank" 
+      class="card" 
+      data-title="CSS Notes for Professionals" 
+      data-language="CSS">
+      <img 
+        src="https://th.bing.com/th/id/OIP.Y9Gkz2nICHUzwsEGSpSGAQHaKe?rs=1&pid=ImgDetMain" 
+        alt="Portada CSS Notes">
+      <div class="info">
+        <h3>CSS Notes for Professionals</h3>
+        <p>GoalKicker</p>
+        <p><strong>CSS</strong></p>
+      </div>
+    </a>
+    <!-- Tarjeta de Algoritmos -->
+    <a 
+      href="https://editorial.unrn.edu.ar/media/data/lecturas/problemas_algoritmos_eunrn.pdf?utm_source=chatgpt.com" 
+      target="_blank" 
+      class="card" 
+      data-title="Problemas y Algoritmos" 
+      data-language="Algoritmos">
+      <img 
+        src="https://th.bing.com/th/id/OIP.pH9Wk3WjQCPLRxzuWlFm6wHaLX?rs=1&pid=ImgDetMain" 
+        alt="Portada Problemas y Algoritmos">
+      <div class="info">
+        <h3>Problemas y Algoritmos</h3>
+        <p>Luis E. Vargas Azcona</p>
+        <p><strong>Algoritmos</strong></p>
+      </div>
+    </a>
+    <!-- Tarjeta de C++ -->
+    <a 
+      href="https://chenweixiang.github.io/docs/The_C%2B%2B_Programming_Language_4th_Edition_Bjarne_Stroustrup.pdf?utm_source=chatgpt.com" 
+      target="_blank" 
+      class="card" 
+      data-title="The C++ Programming Language" 
+      data-language="C++">
+      <img 
+        src="https://th.bing.com/th/id/R.08f17ceeb84d14b09afa108693f4b37a?rik=1tE8fqlsiLFghA&riu=http%3a%2f%2fwww.informit.com%2fShowCover.aspx%3fisbn%3d0321563840&ehk=Wh4pnPptBiG%2fRK%2fBZ8yOicCAihJxoxNCyy%2f4eo4pBEk%3d&risl=&pid=ImgRaw&r=0" 
+        alt="Portada The C++ Programming Language">
+      <div class="info">
+        <h3>The C++ Programming Language</h3>
+        <p>Bjarne Stroustrup</p>
+        <p><strong>C++</strong></p>
+      </div>
+    </a>
+    <!-- Tarjeta de JavaScript -->
+    <a 
+      href="https://eloquentjavascript.net/Eloquent_JavaScript_small.pdf?utm_source=chatgpt.com" 
+      target="_blank" 
+      class="card" 
+      data-title="Eloquent JavaScript" 
+      data-language="JavaScript">
+      <img 
+        src="https://cdn2.penguin.com.au/covers/original/9781718504103.jpg" 
+        alt="Portada Eloquent JavaScript">
+      <div class="info">
+        <h3>Eloquent JavaScript</h3>
+        <p>Marijn Haverbeke</p>
+        <p><strong>JavaScript</strong></p>
+      </div>
+    </a>
+  </div>
+
+  <!-- JavaScript mínimo para ordenar y filtrar -->
+  <script>
+    // Función para ordenar tarjetas
+    function ordenarTarjetas(ascendente = true) {
+      const container = document.getElementById("cardContainer");
+      let cards = Array.from(container.getElementsByClassName("card"));
+      cards.sort((a, b) => {
+        const titleA = a.getAttribute("data-title").toLowerCase();
+        const titleB = b.getAttribute("data-title").toLowerCase();
+        if (titleA < titleB) return ascendente ? -1 : 1;
+        if (titleA > titleB) return ascendente ? 1 : -1;
+        return 0;
+      });
+      container.innerHTML = "";
+      cards.forEach(card => container.appendChild(card));
+    }
+
+    // Función para filtrar tarjetas por lenguaje
+    function filtrarTarjetas() {
+      const filtro = document.getElementById("filtroLenguaje").value;
+      const cards = document.getElementsByClassName("card");
+      Array.from(cards).forEach(card => {
+        const lang = card.getAttribute("data-language");
+        card.style.display = (filtro === "todos" || lang === filtro) ? "block" : "none";
+      });
+    }
+
+    // Eventos para controles
+    document.getElementById("ascendente").addEventListener("click", () => ordenarTarjetas(true));
+    document.getElementById("descendente").addEventListener("click", () => ordenarTarjetas(false));
+    document.getElementById("filtroLenguaje").addEventListener("change", filtrarTarjetas);
+  </script>
+</body>
+</html>
